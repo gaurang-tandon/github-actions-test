@@ -1,0 +1,23 @@
+name: Python CI
+
+# Trigger this workflow on push to any branch
+on:
+  push:
+    branches: ['*']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use a GitHub-hosted Ubuntu machine
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # This clones your repo into the runner
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11  # Use Python 3.11
+
+      - name: Verify Python version
+        run: python --version
+
